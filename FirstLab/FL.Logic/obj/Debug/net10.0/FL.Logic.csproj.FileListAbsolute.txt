@@ -1,0 +1,15 @@
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.csproj.AssemblyReference.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.GeneratedMSBuildEditorConfig.editorconfig
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.AssemblyInfoInputs.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.AssemblyInfo.cs
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.csproj.CoreCompileInputs.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/bin/Debug/net10.0/FL.Logic.deps.json
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/bin/Debug/net10.0/FL.Logic.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/bin/Debug/net10.0/FL.Logic.pdb
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/bin/Debug/net10.0/FL.Domain.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/bin/Debug/net10.0/FL.Domain.pdb
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.csproj.Up2Date
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/refint/FL.Logic.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/FL.Logic.pdb
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Logic/obj/Debug/net10.0/ref/FL.Logic.dll

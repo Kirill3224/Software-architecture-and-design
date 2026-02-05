@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HEZ6Vo/BTEw=",
+  "success": true,
+  "projectFilePath": "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.App/FL.App.csproj",
+  "expectedPackageFiles": [
+    "/home/xxkdl/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.0/microsoft.aspnetcore.app.ref.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

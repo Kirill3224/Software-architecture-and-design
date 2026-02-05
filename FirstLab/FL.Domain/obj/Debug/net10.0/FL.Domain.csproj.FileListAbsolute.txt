@@ -1,0 +1,11 @@
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/bin/Debug/net10.0/FL.Domain.deps.json
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/bin/Debug/net10.0/FL.Domain.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/bin/Debug/net10.0/FL.Domain.pdb
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.AssemblyInfoInputs.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.AssemblyInfo.cs
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.csproj.CoreCompileInputs.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/refint/FL.Domain.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.pdb
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/ref/FL.Domain.dll

@@ -1,0 +1,4 @@
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Console/obj/Debug/net10.0/FL.Console.GeneratedMSBuildEditorConfig.editorconfig
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Console/obj/Debug/net10.0/FL.Console.AssemblyInfoInputs.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Console/obj/Debug/net10.0/FL.Console.AssemblyInfo.cs
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Console/obj/Debug/net10.0/FL.Console.csproj.CoreCompileInputs.cache

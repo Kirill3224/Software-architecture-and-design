@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="FL.App/FL.App.csproj" />
+  <Project Path="FL.Domain/FL.Domain.csproj" />
+  <Project Path="FL.Logic/FL.Logic.csproj" />
+</Solution>
