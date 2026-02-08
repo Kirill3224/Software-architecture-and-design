@@ -7,7 +7,7 @@ public class StudentGroup
     public string Name { get; } = string.Empty;
     public int Year { get; }
     public int Size { get; }
-    public int SubgroupSize { get; private set; }
+    public int SubgroupSize { get; }
     public List<string> CompletedWorks { get; } = new List<string>();
 
     public event Action<string>? OnActivityCompleted;

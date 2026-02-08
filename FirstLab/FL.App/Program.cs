@@ -18,7 +18,7 @@ class Program
 
         group1.OnActivityCompleted += (msg) => System.Console.WriteLine($"[Nofification] {msg}");
 
-        System.Console.WriteLine("University simulation: ");
+        System.Console.WriteLine("- University simulation: ");
 
         var oop = new OOPDiscipline();
         manager.StartLesson(teacher1, group1, oop, oop.Activities[1], equipment);
@@ -31,6 +31,6 @@ class Program
 
         manager.StartLesson(teacher1, group1, oop, oop.Activities[3], equipment);
 
-        Console.WriteLine("End");
+        System.Console.WriteLine("- End");
     }
 }

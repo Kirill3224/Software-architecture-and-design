@@ -10,8 +10,8 @@ public class Teacher
         Name = name;
     }
 
-    public void SetBusy(bool bust)
+    public void SetBusy(bool busy)
     {
-        IsBusy = IsBusy;
+        IsBusy = busy;
     }
 }

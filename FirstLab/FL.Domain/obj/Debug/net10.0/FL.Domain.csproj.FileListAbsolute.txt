@@ -9,3 +9,4 @@
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/refint/FL.Domain.dll
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.pdb
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/ref/FL.Domain.dll
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/Debug/net10.0/FL.Domain.sourcelink.json

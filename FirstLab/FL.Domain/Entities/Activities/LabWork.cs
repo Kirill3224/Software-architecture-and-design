@@ -4,5 +4,5 @@ namespace FL.Domain.Entities.Activities;
 
 public class LabWork : Activity
 {
-    public LabWork() : base("Lab Work", true) { }
+    public LabWork() : base("Lab Work") { }
 }

@@ -18,3 +18,4 @@
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.App/bin/Debug/net10.0/FL.App
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.App/bin/Debug/net10.0/FL.App.runtimeconfig.json
 /home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.App/obj/Debug/net10.0/FL.App.genruntimeconfig.cache
+/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.App/obj/Debug/net10.0/FL.App.sourcelink.json

@@ -4,5 +4,5 @@ namespace FL.Domain.Entities.Activities;
 
 public class Exam : Activity
 {
-    public Exam() : base("Exam", true) { }
+    public Exam() : base("Exam") { }
 }

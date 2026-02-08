@@ -4,5 +4,5 @@ namespace FL.Domain.Entities.Activities;
 
 public class ModularTests : Activity
 {
-    public ModularTests() : base("Modular Tests", true) { }
+    public ModularTests() : base("Modular Tests") { }
 }

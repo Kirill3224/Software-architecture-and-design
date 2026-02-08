@@ -4,5 +4,5 @@ namespace FL.Domain.Entities.Activities;
 
 public class Credit : Activity
 {
-    public Credit() : base("Credit", true) { }
+    public Credit() : base("Credit") { }
 }

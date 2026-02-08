@@ -4,5 +4,5 @@ namespace FL.Domain.Entities.Activities;
 
 public class Reading : Activity
 {
-    public Reading() : base("Reading", true) { }
+    public Reading() : base("Reading") { }
 }
