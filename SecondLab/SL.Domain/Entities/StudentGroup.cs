@@ -1,16 +1,18 @@
 
 
+using SL.Domain.Events;
+
 namespace SL.Domain.Entities;
 
 public class StudentGroup
 {
-    public string Name { get; } = string.Empty;
+    public string Name { get; }
     public int Year { get; }
     public int Size { get; }
     public int SubgroupSize { get; }
     public List<string> CompletedWorks { get; } = new List<string>();
 
-    public event Action<string>? OnActivityCompleted;
+    public event EventHandler<LessonFinishedEventArgs>? JournalUpdated;
 
     public StudentGroup(string name, int year, int size)
     {
@@ -18,11 +20,21 @@ public class StudentGroup
         Year = year;
         Size = size;
         SubgroupSize = Size / 2;
+
+        if (SubgroupSize < 10)
+            throw new ArgumentException("Group size is too small. Subgroup must have at least 10 students.");
     }
 
-    public void CompleteActivity(string activityName)
+    public void OnLessonFinished(object sender, LessonFinishedEventArgs e)
     {
-        CompletedWorks.Add(activityName);
-        OnActivityCompleted?.Invoke($"{Name} completed: {activityName}");
+
+        CompletedWorks.Add($"{e.DisciplineName}: {e.CompletedActivity.Name}");
+
+        OnJournalUpdated(e);
+    }
+
+    public virtual void OnJournalUpdated(LessonFinishedEventArgs e)
+    {
+        JournalUpdated?.Invoke(this, e);
     }
 }
