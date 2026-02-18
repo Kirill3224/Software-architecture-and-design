@@ -12,6 +12,7 @@ public class StudentGroup
     public int SubgroupSize { get; }
     public bool IsBusy { get; private set; } = false;
     public List<string> CompletedWorks { get; } = new List<string>();
+    public Dictionary<string, int> GradeBook { get; } = new();
 
     public event EventHandler<LessonFinishedEventArgs>? JournalUpdated;
 
@@ -46,5 +47,19 @@ public class StudentGroup
     public void SetBusy(bool newStatus)
     {
         IsBusy = newStatus;
+    }
+
+    public void TakeExam(string disciplineName)
+    {
+        int attendanceBonus = CompletedWorks.Count(w => w.StartsWith(disciplineName)) * 5;
+        int luck = new Random().Next(0, 21);
+
+        int totalScore = 50 + attendanceBonus + luck;
+        if (totalScore > 100) totalScore = 100;
+
+        if (GradeBook.ContainsKey(disciplineName))
+            GradeBook[disciplineName] = totalScore;
+        else
+            GradeBook.Add(disciplineName, totalScore);
     }
 }

@@ -7,10 +7,10 @@ public static class StudyValidator
 {
     public static void ValidateGroup(StudentGroup group, Activity activity, Discipline discipline)
     {
-        if (group.SubgroupSize < 10)
+        if (activity.IsRequireSplit && group.SubgroupSize < 10)
             throw new InvalidOperationException($"[Error] Subgroup size {group.SubgroupSize} is too small");
 
-        if ((activity.Name == "Exam" || activity.Name == "Modular Tests"))
+        if (activity.Name == "Exam" || activity.Name == "Modular Tests")
         {
             int subjectWorksCount = group.CompletedWorks.Count(w => w.StartsWith(discipline.Name));
 
@@ -24,11 +24,9 @@ public static class StudyValidator
 
         if (!discipline.CanBeStudiedBy(group))
             throw new InvalidOperationException($"[Error] Group {group.Name} cannot study {discipline.Name}");
-
-
     }
 
-    public static void ValidateEquipment(Equipment equipment, Discipline discipline, List<Equipment> availableEquip)
+    public static void ValidateEquipment(Discipline discipline, List<Equipment> availableEquip)
     {
         foreach (var req in discipline.RequiredEquipment)
         {
@@ -49,5 +47,18 @@ public static class StudyValidator
     {
         if (teacher.IsBusy)
             throw new InvalidOperationException($"[Error] {teacher.Name} is busy");
+    }
+
+    public static void ValidateExamResult(StudentGroup group, string disciplineName, int minScore = 60)
+    {
+        if (!group.GradeBook.TryGetValue(disciplineName, out int score))
+        {
+            throw new InvalidOperationException($"[Error] Group {group.Name} has not completed the exam on '{disciplineName}'.");
+        }
+
+        if (score < minScore)
+        {
+            throw new InvalidOperationException($"[Error] Group {group.Name} failed '{disciplineName}'. Current grade: {score}. Min grade: {minScore}.");
+        }
     }
 }
