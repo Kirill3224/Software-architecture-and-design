@@ -1,8 +1,11 @@
-using SL.Domain.Interfaces;
+using SL.Domain.Common;
 
 namespace SL.Domain.Entities;
 
-public class Computer : IEquipment
+public class Computer : Equipment
 {
-    public string Name { get; } = "Computer/Laptop";
+    public Computer() : base("Computer")
+    {
+
+    }
 }

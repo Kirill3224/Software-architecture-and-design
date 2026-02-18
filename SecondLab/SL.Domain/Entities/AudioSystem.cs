@@ -1,10 +1,13 @@
 
 
-using SL.Domain.Interfaces;
+using SL.Domain.Common;
 
 namespace SL.Domain.Entities;
 
-public class AudioSystem : IEquipment
+public class AudioSystem : Equipment
 {
-    public string Name { get; } = "Audio System";
+    public AudioSystem() : base("Audio System")
+    {
+
+    }
 }

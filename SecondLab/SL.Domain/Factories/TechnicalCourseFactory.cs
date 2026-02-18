@@ -7,9 +7,9 @@ namespace SL.Domain.Factory;
 
 public class TechnicalCourseFactory : ICourseMaterialsFactory
 {
-    public List<IEquipment> CreateEquipment()
+    public List<Equipment> CreateEquipment()
     {
-        return new List<IEquipment>
+        return new List<Equipment>
         {
             new Computer()
         };
