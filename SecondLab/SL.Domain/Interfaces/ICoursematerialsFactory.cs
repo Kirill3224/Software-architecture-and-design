@@ -4,6 +4,6 @@ namespace SL.Domain.Interfaces;
 
 public interface ICourseMaterialsFactory
 {
-    IEquipment CreateEquipment();
+    List<IEquipment> CreateEquipment();
     List<Activity> CreateActivities();
 }

@@ -7,9 +7,12 @@ namespace Sl.Domain.Factory;
 
 public class LanguageCourseFactory : ICourseMaterialsFactory
 {
-    public IEquipment CreateEquipment()
+    public List<IEquipment> CreateEquipment()
     {
-        return new AudioSystem();
+        return new List<IEquipment>
+        {
+            new AudioSystem()
+        };
     }
 
     public List<Activity> CreateActivities()

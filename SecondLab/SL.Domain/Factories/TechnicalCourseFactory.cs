@@ -5,11 +5,14 @@ using SL.Domain.Interfaces;
 
 namespace SL.Domain.Factory;
 
-public class STEMCourseFactory : ICourseMaterialsFactory
+public class TechnicalCourseFactory : ICourseMaterialsFactory
 {
-    public IEquipment CreateEquipment()
+    public List<IEquipment> CreateEquipment()
     {
-        return new Computer();
+        return new List<IEquipment>
+        {
+            new Computer()
+        };
     }
 
     public List<Activity> CreateActivities()
