@@ -6,7 +6,7 @@ namespace SL.Domain.Entities;
 public class Teacher
 {
     public string Name { get; }
-    public bool IsBusy { get; private set; }
+    public bool IsBusy { get; private set; } = false;
 
     public event EventHandler<LessonFinishedEventArgs>? LessonFinished;
     public event EventHandler<LessonStartedEventArgs>? LessonStarted;
@@ -18,12 +18,12 @@ public class Teacher
 
     public void ConductLesson(string disciplineName, Activity activity)
     {
-        IsBusy = true;
+        SetBusy(true);
         OnLessonStarted(new LessonStartedEventArgs(disciplineName, activity));
 
         Thread.Sleep(1500);
 
-        IsBusy = false;
+        SetBusy(false);
         OnLessonFinished(new LessonFinishedEventArgs(disciplineName, activity));
     }
 
@@ -35,5 +35,10 @@ public class Teacher
     protected virtual void OnLessonStarted(LessonStartedEventArgs e)
     {
         LessonStarted?.Invoke(this, e);
+    }
+
+    public void SetBusy(bool newStatus)
+    {
+        IsBusy = newStatus;
     }
 }

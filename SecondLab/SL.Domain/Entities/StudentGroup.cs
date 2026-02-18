@@ -10,6 +10,7 @@ public class StudentGroup
     public int Year { get; }
     public int Size { get; }
     public int SubgroupSize { get; }
+    public bool IsBusy { get; private set; } = false;
     public List<string> CompletedWorks { get; } = new List<string>();
 
     public event EventHandler<LessonFinishedEventArgs>? JournalUpdated;
@@ -20,15 +21,19 @@ public class StudentGroup
         Year = year;
         Size = size;
         SubgroupSize = Size / 2;
-
-        if (SubgroupSize < 10)
-            throw new ArgumentException("Group size is too small. Subgroup must have at least 10 students.");
     }
 
-    public void OnLessonFinished(object sender, LessonFinishedEventArgs e)
+    public void OnLessonStarted(object? sender, LessonStartedEventArgs e)
+    {
+        SetBusy(true);
+    }
+
+    public void OnLessonFinished(object? sender, LessonFinishedEventArgs e)
     {
 
         CompletedWorks.Add($"{e.DisciplineName}: {e.CompletedActivity.Name}");
+
+        SetBusy(false);
 
         OnJournalUpdated(e);
     }
@@ -36,5 +41,10 @@ public class StudentGroup
     public virtual void OnJournalUpdated(LessonFinishedEventArgs e)
     {
         JournalUpdated?.Invoke(this, e);
+    }
+
+    public void SetBusy(bool newStatus)
+    {
+        IsBusy = newStatus;
     }
 }

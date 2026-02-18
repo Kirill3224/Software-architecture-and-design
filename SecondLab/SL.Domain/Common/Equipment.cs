@@ -5,15 +5,15 @@ namespace SL.Domain.Common;
 public abstract class Equipment
 {
     public string Name { get; }
-    public bool IsTaken { get; private set; } = false;
+    public bool IsBusy { get; private set; } = false;
 
     public Equipment(string name)
     {
         Name = name;
     }
 
-    public void SetTaken(bool newStatus)
+    public void SetBusy(bool newStatus)
     {
-        IsTaken = newStatus;
+        IsBusy = newStatus;
     }
 }
