@@ -3,7 +3,7 @@ using SL.Domain.Entities;
 using SL.Domain.Entities.Activities;
 using SL.Domain.Interfaces;
 
-namespace Sl.Domain.Factory;
+namespace SL.Domain.Factories;
 
 public class LanguageCourseFactory : ICourseMaterialsFactory
 {
