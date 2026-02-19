@@ -3,7 +3,7 @@ using SL.Domain.Interfaces;
 
 namespace SL.Domain.Common;
 
-public abstract class Discipline
+public abstract class Discipline : BaseEntity
 {
     public string Name { get; }
     public List<int> AllowedYears { get; }

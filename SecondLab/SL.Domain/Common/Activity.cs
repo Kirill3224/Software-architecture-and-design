@@ -2,7 +2,7 @@
 
 namespace SL.Domain.Common;
 
-public abstract class Activity
+public abstract class Activity : BaseEntity
 {
     public string Name { get; }
     public bool IsRequireSplit { get; protected set; } = false;

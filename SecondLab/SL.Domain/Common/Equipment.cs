@@ -2,7 +2,7 @@
 
 namespace SL.Domain.Common;
 
-public abstract class Equipment
+public abstract class Equipment : BaseEntity
 {
     public string Name { get; }
     public bool IsBusy { get; private set; } = false;
