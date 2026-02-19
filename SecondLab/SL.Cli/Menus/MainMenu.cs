@@ -12,8 +12,8 @@ public class MainMenu
         while (!exit)
         {
             Console.Clear();
-            Console.WriteLine("1. Form a study group");
-            Console.WriteLine("2. Appoint a teacher");
+            Console.WriteLine("1. Manage study gruops");
+            Console.WriteLine("2. Manage teachers");
             Console.WriteLine("3. Start semester (Simulation)");
             Console.WriteLine("4. View the grade journal");
             Console.WriteLine("5. Check the equipment status");
