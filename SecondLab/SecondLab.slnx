@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="SL.Console/SL.Console.csproj" />
+  <Project Path="SL.App/SL.App.csproj" />
   <Project Path="SL.Domain/SL.Domain.csproj" />
-  <Project Path="SL.Logic/SL.Logic.csproj" />
 </Solution>
