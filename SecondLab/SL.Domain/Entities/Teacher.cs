@@ -3,25 +3,27 @@ using SL.Domain.Events;
 
 namespace SL.Domain.Entities;
 
-public class Teacher
+public class Teacher : BaseEntity
 {
-    public string Name { get; }
+    public string FirstName { get; private set; } = string.Empty;
+    public string LastName { get; private set; } = string.Empty;
     public bool IsBusy { get; private set; } = false;
 
     public event EventHandler<LessonFinishedEventArgs>? LessonFinished;
     public event EventHandler<LessonStartedEventArgs>? LessonStarted;
 
-    public Teacher(string name)
+    public Teacher(string firstName, string lastName)
     {
-        Name = name;
+        FirstName = firstName;
+        LastName = lastName;
     }
+
+    protected Teacher() { }
 
     public void ConductLesson(string disciplineName, Activity activity)
     {
         SetBusy(true);
         OnLessonStarted(new LessonStartedEventArgs(disciplineName, activity));
-
-        Thread.Sleep(1500);
 
         SetBusy(false);
         OnLessonFinished(new LessonFinishedEventArgs(disciplineName, activity));

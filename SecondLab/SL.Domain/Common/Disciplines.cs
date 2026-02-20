@@ -5,8 +5,8 @@ namespace SL.Domain.Common;
 
 public abstract class Discipline : BaseEntity
 {
-    public string Name { get; }
-    public List<int> AllowedYears { get; }
+    public string Name { get; private set; } = string.Empty;
+    public List<int> AllowedYears { get; } = new();
     private readonly List<Activity> _activities = new();
     private readonly List<Equipment> _requiredEquipment = new();
 
@@ -15,6 +15,8 @@ public abstract class Discipline : BaseEntity
         Name = name;
         AllowedYears = allowedYears;
     }
+
+    protected Discipline() { }
 
     public IReadOnlyList<Activity> Activities => _activities;
     public IReadOnlyList<Equipment> RequiredEquipment => _requiredEquipment;
