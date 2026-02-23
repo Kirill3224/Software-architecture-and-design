@@ -26,28 +26,6 @@ public static class StudyValidator
             throw new InvalidOperationException($"[Error] Group {group.Name} cannot study {discipline.Name}");
     }
 
-    public static void ValidateEquipment(Discipline discipline, List<Equipment> availableEquip)
-    {
-        var reservedIds = new HashSet<Guid>();
-
-        foreach (var req in discipline.RequiredEquipment)
-        {
-            var freeItem = availableEquip.FirstOrDefault(e =>
-                            e.GetType() == req.GetType() &&
-                            !e.IsBusy &&
-                            !reservedIds.Contains(e.Id)
-                        );
-
-            if (freeItem == null)
-            {
-                throw new InvalidOperationException($"[Error] Cannot start lesson. Missing required equipment: {req.Name} for discipline {discipline.Name}");
-            }
-
-            reservedIds.Add(freeItem.Id);
-        }
-
-    }
-
     public static void ValidateTeacher(Teacher teacher)
     {
         if (teacher.IsBusy)
@@ -65,5 +43,30 @@ public static class StudyValidator
         {
             throw new InvalidOperationException($"[Error] Group {group.Name} failed '{disciplineName}'. Current grade: {score}. Min grade: {minScore}.");
         }
+    }
+
+    public static List<Equipment> GetRequiredEquipmentOrThrow(Discipline discipline, IEnumerable<Equipment> availableEquip)
+    {
+        var foundEquipment = new List<Equipment>();
+        var usedIds = new HashSet<Guid>();
+
+        foreach (var req in discipline.RequiredEquipment)
+        {
+            var freeItem = availableEquip.FirstOrDefault(e =>
+                e.GetType() == req.GetType() &&
+                !e.IsBusy &&
+                !usedIds.Contains(e.Id)
+            );
+
+            if (freeItem == null)
+            {
+                throw new InvalidOperationException($"[Error] Missing required equipment: {req.Name} for {discipline.Name}");
+            }
+
+            foundEquipment.Add(freeItem);
+            usedIds.Add(freeItem.Id);
+        }
+
+        return foundEquipment;
     }
 }

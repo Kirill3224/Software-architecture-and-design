@@ -20,13 +20,13 @@ public class Teacher : BaseEntity
 
     protected Teacher() { }
 
-    public void ConductLesson(string disciplineName, Activity activity)
+    public void ConductLesson(Discipline discipline, Activity activity)
     {
         SetBusy(true);
-        OnLessonStarted(new LessonStartedEventArgs(disciplineName, activity));
+        OnLessonStarted(new LessonStartedEventArgs(discipline.Name, activity));
 
         SetBusy(false);
-        OnLessonFinished(new LessonFinishedEventArgs(disciplineName, activity));
+        OnLessonFinished(new LessonFinishedEventArgs(discipline.Name, activity));
     }
 
     protected virtual void OnLessonFinished(LessonFinishedEventArgs e)
