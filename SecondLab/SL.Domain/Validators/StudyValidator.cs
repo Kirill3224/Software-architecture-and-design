@@ -46,7 +46,7 @@ public static class StudyValidator
     public static void ValidateTeacher(Teacher teacher)
     {
         if (teacher.IsBusy)
-            throw new InvalidOperationException($"[Error] {teacher.Name} is busy");
+            throw new InvalidOperationException($"[Error] {teacher.FirstName} is busy");
     }
 
     public static void ValidateExamResult(StudentGroup group, string disciplineName, int minScore = 60)
