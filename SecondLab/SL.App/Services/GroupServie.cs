@@ -9,11 +9,11 @@ namespace SL.App.Services;
 
 public class GroupService : IGroupService
 {
-    private readonly IRepository<StudentGroup> _repository;
+    private readonly IRepository<StudentGroup> _repo;
 
-    public GroupService(IRepository<StudentGroup> repository)
+    public GroupService(IRepository<StudentGroup> repo)
     {
-        _repository = repository;
+        _repo = repo;
     }
 
     public Guid Create(string name, int year)
@@ -27,7 +27,7 @@ public class GroupService : IGroupService
 
         var group = new StudentGroup(name, year);
 
-        _repository.Add(group);
+        _repo.Add(group);
 
         return group.Id;
     }
@@ -42,29 +42,29 @@ public class GroupService : IGroupService
         var student = new Student(firstName, lastName);
 
         group.AddStudent(student);
-        _repository.Update(group);
+        _repo.Update(group);
     }
 
     public void Update(StudentGroup group)
     {
         if (group is null)
             throw new KeyNotFoundException("Group not found");
-        _repository.Update(group);
+        _repo.Update(group);
     }
 
     public void Delete(Guid groupId)
     {
-        _repository.Delete(groupId);
+        _repo.Delete(groupId);
     }
 
     public StudentGroup? GetById(Guid groupId)
     {
-        return _repository.GetById(groupId);
+        return _repo.GetById(groupId);
     }
 
     public IEnumerable<StudentGroup> GetAll()
     {
-        return _repository.GetAll();
+        return _repo.GetAll();
     }
 
     public IEnumerable<Student> GetAllStudentsInGroup(Guid groupId)
