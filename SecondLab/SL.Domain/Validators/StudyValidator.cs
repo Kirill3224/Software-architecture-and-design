@@ -28,17 +28,22 @@ public static class StudyValidator
 
     public static void ValidateEquipment(Discipline discipline, List<Equipment> availableEquip)
     {
+        var reservedIds = new HashSet<Guid>();
+
         foreach (var req in discipline.RequiredEquipment)
         {
-            bool hasFreeEquipment = availableEquip.Any(e =>
+            var freeItem = availableEquip.FirstOrDefault(e =>
                             e.GetType() == req.GetType() &&
-                            !e.IsBusy
+                            !e.IsBusy &&
+                            !reservedIds.Contains(e.Id)
                         );
 
-            if (!hasFreeEquipment)
+            if (freeItem == null)
             {
-                throw new InvalidOperationException($"[Error] Cannot start lesson. Missing or busy required equipment: {req.Name} for discipline {discipline.Name}");
+                throw new InvalidOperationException($"[Error] Cannot start lesson. Missing required equipment: {req.Name} for discipline {discipline.Name}");
             }
+
+            reservedIds.Add(freeItem.Id);
         }
 
     }
