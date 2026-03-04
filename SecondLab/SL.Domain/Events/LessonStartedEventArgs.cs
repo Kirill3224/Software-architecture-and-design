@@ -8,7 +8,7 @@ public class LessonStartedEventArgs : EventArgs
     public Activity StartedActivity { get; }
     public DateTime Time { get; }
 
-    public LessonStartedEventArgs(Discipline discipline, Activity activity)
+    public LessonStartedEventArgs(string discipline, Activity activity)
     {
         DisciplineName = discipline;
         StartedActivity = activity;

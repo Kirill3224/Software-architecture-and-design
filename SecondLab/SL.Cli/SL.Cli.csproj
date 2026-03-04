@@ -2,6 +2,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SL.Domain\SL.Domain.csproj" />
+    <ProjectReference Include="..\SL.App\SL.App.csproj" />
+    <ProjectReference Include="..\SL.Infra\SL.Infra.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

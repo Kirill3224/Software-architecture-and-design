@@ -1,17 +1,29 @@
 
 
+using SL.Cli.Managers;
+
 namespace SL.App.Menus;
 
 public class MainMenu
 {
+    private readonly GroupManager _groupManager;
+
+    public MainMenu(GroupManager groupManager)
+    {
+        _groupManager = groupManager;
+    }
     public void Show()
     {
         Console.Title = "Stduy Simulation System";
-        bool exit = false;
 
-        while (!exit)
+        while (true)
         {
             Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"--- Stduy Simulation System ---");
+            Console.ResetColor();
+
             Console.WriteLine("1. Manage study gruops");
             Console.WriteLine("2. Manage teachers");
             Console.WriteLine("3. Start semester (Simulation)");
@@ -19,6 +31,16 @@ public class MainMenu
             Console.WriteLine("5. Check the equipment status");
             Console.WriteLine("0. Exit");
             Console.Write("\nSelect an option: ");
+
+            string choice = Console.ReadLine() ?? string.Empty;
+
+            if (choice == "0") break;
+
+            switch (choice)
+            {
+                case "1":
+                    _groupManager.Run(); break;
+            }
         }
 
 
