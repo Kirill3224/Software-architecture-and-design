@@ -157,18 +157,12 @@ public class GroupManager
             }
         }
 
-        try
-        {
-            group.UpdateInfo(newName, newYear);
+        group.UpdateInfo(newName, newYear);
 
-            _groupService.Update(group);
+        _groupService.Update(group);
 
-            MinorMethods.ShowSuccess("Group updated successfully.");
-        }
-        catch (ArgumentException ex)
-        {
-            MinorMethods.ShowError(ex.Message);
-        }
+        MinorMethods.ShowSuccess("Group updated successfully.");
+
     }
 
     private void ListAllGroups()
@@ -190,7 +184,7 @@ public class GroupManager
         foreach (var group in allGroups)
         {
             string status = group.IsBusy ? "Busy" : "Free";
-            Console.WriteLine($"{count,-3} | {group.Id,-36} | {group.Name,-15} | {group.Year,-4} | {group.Size,-4} | {status}");
+            Console.WriteLine($"{count + 1,-3} | {group.Id,-36} | {group.Name,-15} | {group.Year,-4} | {group.Size,-4} | {status}");
             count++;
         }
 
@@ -216,6 +210,7 @@ public class GroupManager
         else
         {
             MinorMethods.ShowError("Group not found");
+            return;
         }
     }
 

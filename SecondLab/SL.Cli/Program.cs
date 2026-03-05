@@ -19,11 +19,13 @@ class Program
             var equipmentRepo = new JsonRepository<Equipment>("equipments.json");
 
             var groupService = new GroupService(groupRepo);
+            var teacherService = new TeacherService(teacherRepo);
             var simulationService = new SimulationService(teacherRepo, groupRepo, disciplineRepo, equipmentRepo);
 
             var groupManager = new GroupManager(groupService);
+            var teacherManager = new TeacherManager(teacherService);
 
-            var mainMenu = new MainMenu(groupManager);
+            var mainMenu = new MainMenu(groupManager, teacherManager);
 
             mainMenu.Show();
         }

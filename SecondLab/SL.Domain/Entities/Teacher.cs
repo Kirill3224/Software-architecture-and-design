@@ -43,4 +43,15 @@ public class Teacher : BaseEntity
     {
         IsBusy = newStatus;
     }
+
+    public void UpdateInfo(string newFirstName, string newLastName)
+    {
+        if (string.IsNullOrWhiteSpace(newFirstName))
+            throw new ArgumentException("First name cannot be empty");
+        if (string.IsNullOrWhiteSpace(newLastName))
+            throw new ArgumentException("Last name cannot be empty");
+
+        FirstName = newFirstName;
+        LastName = newLastName;
+    }
 }
