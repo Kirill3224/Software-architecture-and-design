@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/FL.Domain.csproj": {}
+    "/home/xxkdl/Git/github.com/Kirill3224/SoftwareArchitecture/FirstLab/FL.Domain/FL.Domain.csproj": {}
   },
   "projects": {
-    "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/FL.Domain.csproj": {
+    "/home/xxkdl/Git/github.com/Kirill3224/SoftwareArchitecture/FirstLab/FL.Domain/FL.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/FL.Domain.csproj",
+        "projectUniqueName": "/home/xxkdl/Git/github.com/Kirill3224/SoftwareArchitecture/FirstLab/FL.Domain/FL.Domain.csproj",
         "projectName": "FL.Domain",
-        "projectPath": "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/FL.Domain.csproj",
+        "projectPath": "/home/xxkdl/Git/github.com/Kirill3224/SoftwareArchitecture/FirstLab/FL.Domain/FL.Domain.csproj",
         "packagesPath": "/home/xxkdl/.nuget/packages/",
-        "outputPath": "/home/xxkdl/Git/github.com/Kirill3224/FirstLab/FL.Domain/obj/",
+        "outputPath": "/home/xxkdl/Git/github.com/Kirill3224/SoftwareArchitecture/FirstLab/FL.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/xxkdl/.nuget/NuGet/NuGet.Config"
