@@ -3,6 +3,7 @@ using SL.App.Services;
 using SL.Cli.Managers;
 using SL.Domain.Common;
 using SL.Domain.Entities;
+using SL.Domain.Factories;
 using SL.Infra.Repositories;
 
 namespace SL.Cli;
@@ -13,19 +14,23 @@ class Program
     {
         try
         {
+            var langFactory = new LanguageCourseFactory();
+            var teachFactory = new TechnicalCourseFactory();
+
             var groupRepo = new JsonRepository<StudentGroup>("groups.json");
             var teacherRepo = new JsonRepository<Teacher>("teachers.json");
-            var disciplineRepo = new JsonRepository<Discipline>("disciplines.json");
             var equipmentRepo = new JsonRepository<Equipment>("equipments.json");
 
             var groupService = new GroupService(groupRepo);
             var teacherService = new TeacherService(teacherRepo);
-            var simulationService = new SimulationService(teacherRepo, groupRepo, disciplineRepo, equipmentRepo);
+            var disciplineService = new DisciplineService(teachFactory, langFactory);
+            var simulationService = new SimulationService(teacherRepo, groupRepo, equipmentRepo, disciplineService);
 
             var groupManager = new GroupManager(groupService);
             var teacherManager = new TeacherManager(teacherService);
+            var simulationManager = new SimulationManager(simulationService, disciplineService, groupService);
 
-            var mainMenu = new MainMenu(groupManager, teacherManager);
+            var mainMenu = new MainMenu(groupManager, teacherManager, simulationManager, equipmentRepo);
 
             mainMenu.Show();
         }

@@ -1,0 +1,62 @@
+[
+  {
+    "Name": "Computer",
+    "IsBusy": false,
+    "Id": "18400c5d-ce2f-46e7-b64f-b025d44e94ae",
+    "CreatedAt": "2026-03-06T15:02:16.0642211Z"
+  },
+  {
+    "Name": "Audio System",
+    "IsBusy": false,
+    "Id": "cf560a79-54b5-42a6-8472-d4394d91e765",
+    "CreatedAt": "2026-03-06T15:02:16.0837495Z"
+  },
+  {
+    "Name": "Computer",
+    "IsBusy": false,
+    "Id": "f55874d1-1db1-46ab-9747-52bc4e75f18f",
+    "CreatedAt": "2026-03-06T15:02:16.0842896Z"
+  },
+  {
+    "Name": "Audio System",
+    "IsBusy": false,
+    "Id": "1a275f0d-f24c-4dfb-ac2a-e5ecab41ced6",
+    "CreatedAt": "2026-03-06T15:02:16.0844547Z"
+  },
+  {
+    "Name": "Computer",
+    "IsBusy": false,
+    "Id": "15dea23d-90a7-40ae-97a6-0766ecd1aa98",
+    "CreatedAt": "2026-03-06T15:02:16.0846604Z"
+  },
+  {
+    "Name": "Audio System",
+    "IsBusy": false,
+    "Id": "6e8f0801-1f8a-4ffc-baa9-eed2346dd0f1",
+    "CreatedAt": "2026-03-06T15:02:16.0848208Z"
+  },
+  {
+    "Name": "Computer",
+    "IsBusy": false,
+    "Id": "679219c0-829e-443a-9c4b-3e38da9775a0",
+    "CreatedAt": "2026-03-06T15:02:16.0850189Z"
+  },
+  {
+    "Name": "Audio System",
+    "IsBusy": false,
+    "Id": "2f01e08c-16ef-4ab7-b8f6-77aa279b7364",
+    "CreatedAt": "2026-03-06T15:02:16.0851579Z"
+  },
+  {
+    "Name": "Computer",
+    "IsBusy": false,
+    "Id": "14be2edd-3bce-4e07-a730-6a4aed17f640",
+    "CreatedAt": "2026-03-06T15:02:16.0854182Z"
+  },
+  {
+    "Name": "Audio System",
+    "IsBusy": false,
+    "Id": "b5fd962d-6d86-4a6b-acd2-57c7a8cc9b51",
+    "CreatedAt": "2026-03-06T15:02:16.0855576Z"
+  }
+]

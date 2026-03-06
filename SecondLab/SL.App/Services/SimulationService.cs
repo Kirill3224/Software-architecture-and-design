@@ -10,14 +10,14 @@ public class SimulationService : ISimulationService
 {
     private readonly IRepository<Teacher> _teacherRepo;
     private readonly IRepository<StudentGroup> _groupRepo;
-    private readonly IRepository<Discipline> _disciplineRepo;
     private readonly IRepository<Equipment> _equipRepo;
+    private readonly IDisciplineService _disciplineService;
 
-    public SimulationService(IRepository<Teacher> teacherRepo, IRepository<StudentGroup> groupRepo, IRepository<Discipline> disciplineRepo, IRepository<Equipment> equipRepo)
+    public SimulationService(IRepository<Teacher> teacherRepo, IRepository<StudentGroup> groupRepo, IRepository<Equipment> equipRepo, IDisciplineService disciplineService)
     {
         _teacherRepo = teacherRepo;
         _groupRepo = groupRepo;
-        _disciplineRepo = disciplineRepo;
+        _disciplineService = disciplineService;
         _equipRepo = equipRepo;
     }
 
@@ -25,19 +25,24 @@ public class SimulationService : ISimulationService
     {
         var teacher = _teacherRepo.GetById(teacherId);
         var group = _groupRepo.GetById(groupId);
-        var discipline = _disciplineRepo.GetAll().FirstOrDefault(d => d.Name == disciplineName);
+        var discipline = _disciplineService.GetAll().FirstOrDefault(d => d.Name == disciplineName);
 
         if (teacher is null)
             throw new KeyNotFoundException($"Teacher with Id {teacherId} not found");
         if (group is null)
-            throw new KeyNotFoundException($"Group with Id {groupId} not found");
+            throw new KeyNotFoundException($"Group with Id {groupId} not found.");
         if (discipline is null)
-            throw new KeyNotFoundException($"Discipline '{disciplineName}' not found");
+            throw new KeyNotFoundException($"Discipline '{disciplineName}' not found.");
+
+        if (teacher.IsBusy)
+            throw new InvalidOperationException($"Teacher already conducting another lesson.");
+        if (group.IsBusy)
+            throw new InvalidOperationException($"Group already on a lesson.");
 
         var activity = discipline.Activities.FirstOrDefault(a => a.Name == activityName);
 
         if (activity is null)
-            throw new KeyNotFoundException($"Activity '{activityName}' not found");
+            throw new KeyNotFoundException($"Activity '{activityName}' not found.");
 
         var allEquipment = _equipRepo.GetAll().ToList();
         var equipmentToUse = StudyValidator.GetRequiredEquipmentOrThrow(discipline, allEquipment);
@@ -53,12 +58,14 @@ public class SimulationService : ISimulationService
                 _equipRepo.Update(item);
             }
 
+            teacher.LessonStarted += group.OnLessonStarted;
             teacher.LessonFinished += group.OnLessonFinished;
             teacher.ConductLesson(discipline, activity);
             _groupRepo.Update(group);
         }
         finally
         {
+            teacher.LessonStarted -= group.OnLessonStarted;
             teacher.LessonFinished -= group.OnLessonFinished;
 
             foreach (var item in equipmentToUse)
@@ -72,12 +79,17 @@ public class SimulationService : ISimulationService
     public int ConductExam(Guid groupId, string disciplineName)
     {
         var group = _groupRepo.GetById(groupId);
-        var discipline = _disciplineRepo.GetAll().FirstOrDefault(d => d.Name == disciplineName);
+        var discipline = _disciplineService.GetAll().FirstOrDefault(d => d.Name == disciplineName);
 
         if (group is null)
             throw new KeyNotFoundException($"Group with Id {groupId} not found");
         if (discipline is null)
             throw new KeyNotFoundException($"Discipline '{disciplineName}' not found");
+
+        if (group.GradeBook.ContainsKey(disciplineName))
+        {
+            throw new InvalidOperationException($"Group {group.Name} has already passed '{disciplineName}' with a score of {group.GradeBook[disciplineName]}. Retakes are not allowed.");
+        }
 
         var examActivity = discipline.Activities.FirstOrDefault(a => a.Name == "Exam");
 
